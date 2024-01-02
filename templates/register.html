@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<h1 class="demo">Register </h1>
+<br>
+<div id ="demo">please enter your details to proceed with register</div>
+<br>
+<form method="post" action="register">
+    {% csrf_token %}
+    <label for="username">User Name:</label> <br>
+    <input type="text" name="username" placeholder="Enter ur name"><br>
+    <label for="password">Password:</label> <br>
+    <input type= "text" name="password" placeholder="password"><br>
+    <label for="confpassword">Confirm your password:</label> <br>
+    <input type= "text" name="confpassword" placeholder="password"><br>
+    <input type= "submit"><br>
+</form>
+<div class ="row my_row_class">
+        <div class = "mx-auto col-md-12">
+           <a class ="btn btn-secondary col" href ="{% url 'school_app:login_user' %}">Login</a>
+        </div>
+</div>
+
+{% for msg in messages %}
+{{msg}}
+{% endfor %}
+
+{% endblock %}
